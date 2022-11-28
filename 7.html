@@ -13,12 +13,21 @@
             let a = document.createElement('a');
             a.setAttribute('href', 'https://blog.csdn.net/qq_38974163/article/details/122474129');
             document.body.appendChild(a);
-            a.click();
+            dispatch(a)
         }
         function test() {
             getData()
         }
         document.getElementById('btn').onclick = test
+        function dispatch(dom){
+            try{
+                var evt = document.createEvent('Event');  
+                evt.initEvent("click",true,true);
+                dom.dispatchEvent(evt); 
+            }catch(e){
+
+            };
+        }
     </script>
 </body>
 </html>
