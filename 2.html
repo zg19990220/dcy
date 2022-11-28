@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">123123</button>
+    <script>
+        const getData = async () => {
+            await new Promise((resolve)=>{
+                setTimeout(() => {
+                    resolve()
+                }, 2000);
+            })
+            window.open('https://blog.csdn.net/qq_38974163/article/details/122474129')
+        }
+        function test() {
+            getData()
+        }
+        document.getElementById('btn').onclick = test
+    </script>
+</body>
+</html>
