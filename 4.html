@@ -15,7 +15,10 @@
                     resolve()
                 }, 2000);
             })
-            window.location.href  = 'https://blog.csdn.net/qq_38974163/article/details/122474129'
+            let a = document.createElement(‘a’);
+            a.setAttribute('href', 'https://blog.csdn.net/qq_38974163/article/details/122474129');
+            document.body.appendChild(dom);
+            a.click();
         }
         function test() {
             getData()
