@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">123123</button>
+    <script>
+        const getData = async () => {
+            await new Promise((a)=>{
+              setTimeout(()=>{
+                a()
+              },2000)
+            })
+            var winRef = window.open("url","_blank");
+            winRef.location.href = 'https://www.cnblogs.com/both-eyes/p/10078432.html'
+        }
+        function test() {
+            getData()
+        }
+        document.getElementById('btn').onclick = test
+    </script>
+</body>
+</html>
