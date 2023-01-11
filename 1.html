@@ -7,8 +7,34 @@
     <title>Document</title>
 </head>
 <body>
+    <input value="[色色]" type="text">
+    <button>测试</button>
+    <div></div>
     <script>
-        document.write(navigator.userAgent)
+        const list = ['台独','只因', '色色', '狗头']
+        const emojiList = ['[哈哈]', '[色色]', '[狗头]']
+        document.getElementsByTagName('button')[0].onclick = test
+        function test() {
+            const str = document.getElementsByTagName('input')[0].value
+            let filterReg = /\[(.*?)\]/g;
+            let filterArray = [];
+            let temp = null
+            while(temp = filterReg.exec(str)) {
+                emojiList.includes(temp[0]) && filterArray.push(temp[1])
+            }
+            const res = list.reduce((arr, chat)=>{
+                let regStr = chat
+                if(filterArray.includes(chat)) {
+                    regStr = `(?<!\\[)${chat}|${chat}(?!\\])`
+                }
+                const reg = new RegExp(regStr, 'g')
+                if(reg.test(str) && !arr.includes(chat)) {
+                    arr.push(chat)
+                }
+                return arr
+            }, [])
+            document.getElementsByTagName('div')[0].innerHTML = res
+        }
     </script>
 </body>
 </html>
